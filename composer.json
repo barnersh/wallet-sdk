@@ -19,7 +19,7 @@
     },
     "laravel": {
         "providers": [
-            "Elvis\\WalletSDK\\WalletServiceProvider"
+            "Elvis\\WalletSdk\\WalletServiceProvider"
         ]
     }
 }
