@@ -2,7 +2,6 @@
 
 namespace Elvis\WalletSdk;
 
-use Elvis\WalletSdk\Managers\DepositManager;
 use Illuminate\Support\ServiceProvider;
 
 class WalletServiceProvider extends ServiceProvider

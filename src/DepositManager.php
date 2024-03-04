@@ -1,6 +1,6 @@
 <?php
 
-namespace Elvis\WalletSdk\Managers;
+namespace Elvis\WalletSdk;
 
 class DepositManager
 {
