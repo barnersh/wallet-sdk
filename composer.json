@@ -1,0 +1,16 @@
+{
+    "name": "elvis/wallet-sdk",
+    "description": "A Package for Wallet",
+    "autoload": {
+        "psr-4": {
+            "Elvis\\WalletSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Elvis",
+            "email": "barnersh@gmail.com"
+        }
+    ],
+    "require": {}
+}
