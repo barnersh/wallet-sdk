@@ -2,10 +2,14 @@
 
 namespace Elvis\WalletSdk\Facades;
 
+use Elvis\WalletSdk\Managers\DepositManager;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static manualConfirm()
+ * @method static createColumns(Blueprint $table)
+ *
+ * @see DepositManager
  */
 class DepositFacade extends Facade
 {
