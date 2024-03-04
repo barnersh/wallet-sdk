@@ -18,11 +18,11 @@ enum NotifyStatus: int implements HasLabel, HasColor
     public function getLabel(): string
     {
         return match ($this) {
-            static::NONE => Lang::get('enums/NotifyStatus.none'),
-            static::PENDING => Lang::get('enums/NotifyStatus.pending'),
-            static::SENDING => Lang::get('enums/NotifyStatus.sending'),
-            static::SUCCESS => Lang::get('enums/NotifyStatus.success'),
-            static::FAILED => Lang::get('enums/NotifyStatus.failed'),
+            static::NONE => Lang::get('wallet-sdk::enums/NotifyStatus.none'),
+            static::PENDING => Lang::get('wallet-sdk::enums/NotifyStatus.pending'),
+            static::SENDING => Lang::get('wallet-sdk::enums/NotifyStatus.sending'),
+            static::SUCCESS => Lang::get('wallet-sdk::enums/NotifyStatus.success'),
+            static::FAILED => Lang::get('wallet-sdk::enums/NotifyStatus.failed'),
         };
     }
 
