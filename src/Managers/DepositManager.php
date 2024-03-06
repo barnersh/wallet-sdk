@@ -3,19 +3,19 @@
 namespace Elvis\WalletSdk\Managers;
 
 use Elvis\WalletSdk\Exceptions\DepositManagerException;
+use Elvis\WalletSdk\Facades\OrderFacade;
 use Elvis\WalletSdk\Models\Order;
-use Elvis\WalletSdk\Models\TransactionInterface;
-use Illuminate\Database\Schema\Blueprint;
+use Elvis\WalletSdk\Models\Transaction;
 
 class DepositManager
 {
     /**
      * @param Order $deposit
      * @param null $amount
-     * @param TransactionInterface|null $transaction
+     * @param Transaction|null $transaction
      * @return Order|null
      */
-    public function manualConfirm(Order $deposit, $amount = null, ?TransactionInterface $transaction = null): Order
+    public function manualConfirm(Order $deposit, $status, $amount = null, ?Transaction $transaction = null): Order
     {
         if ($amount) {
             throw_if(
@@ -24,13 +24,15 @@ class DepositManager
                 'Invalid Amount'
             );
 
-            //todo call order manager
+            return OrderFacade::markDepositAsConfirmedWithAmount($deposit, $status, $amount);
         }
 
         if ($transaction) {
-            //todo call order manager
+            return OrderFacade::markDepositAsConfirmed($deposit, $transaction, $status);
         }
 
         throw new DepositManagerException('Wrong manual confirm');
     }
+
+    //todo makeEmpty method
 }

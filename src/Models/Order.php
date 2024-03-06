@@ -12,11 +12,45 @@ abstract class Order extends Model
 
     abstract public function orderNumber();
 
-    abstract public function markAsConfirmed(?TransactionInterface $transaction = null);
+    abstract public function markAsConfirmed(?Transaction $transaction = null);
 
     abstract public function markAsFailed();
 
     abstract public function availableForConfirmation(): bool;
+
+    abstract public function getFailedStatus();
+
+    abstract public function transaction(): BelongsTo;
+
+    public function toWalletAddress($column = 'to_wallet_address')
+    {
+        return $this->getAttribute($column);
+    }
+
+    public function fromWalletAddress($column = 'from_wallet_address')
+    {
+        return $this->getAttribute($column);
+    }
+
+    public function feeRate($column = 'fee_rate')
+    {
+        return $this->getAttribute($column);
+    }
+
+    public function fee($column = 'fee')
+    {
+        return $this->getAttribute($column);
+    }
+
+    public function transactionFee($column = 'transaction_fee')
+    {
+        return $this->getAttribute($column);
+    }
+
+    public function teamId($column = 'team_id')
+    {
+        return $this->getAttribute($column);
+    }
 
     public function amount()
     {
@@ -33,18 +67,13 @@ abstract class Order extends Model
         return $this->getAttribute('system_order_number');
     }
 
-    public function transaction(): BelongsTo
-    {
-        return $this->belongsTo(Transaction::class, 'transaction_hash', 'transaction_hash');
-    }
-
-    public function getTransactionHash()
+    public function transactionHash()
     {
         return $this->getAttribute('transaction_hash');
     }
 
     /**
-     * @return CoinInterface|TronCoin
+     * @return CoinInterface
      */
     public function getCoin()
     {
